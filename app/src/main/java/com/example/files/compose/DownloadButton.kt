@@ -1,5 +1,6 @@
 package com.example.files.compose
 
+import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,13 +13,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.files.MainActivityViewModel
+import com.example.files.R
 import com.example.files.ui.theme.imageColor40
 
 @Composable
@@ -51,7 +53,24 @@ fun DownloadButton(viewModel: MainActivityViewModel) {
 
         }
         if (downloadStatus) {
-            Toast.makeText(context, "File: ${viewModel.fileName.value} success downloaded", Toast.LENGTH_SHORT).show()
+            DownloadStatusToast(viewModel.fileName.value, context, viewModel)
         }
     }
+}
+
+
+@Composable
+fun DownloadStatusToast(message: String, context: Context, viewModel: MainActivityViewModel) {
+    val toast = { m: String -> Toast.makeText(context, m, Toast.LENGTH_SHORT).show() }
+    val unSuccessMessage = stringResource(id = R.string.un_success_message)
+    val successMessage = stringResource(id = R.string.success_message, formatArgs = arrayOf(message))
+    val errorMessage = stringResource(id = R.string.error_message, formatArgs = arrayOf(message))
+    ShowToast {
+        when {
+            message == "" -> toast(unSuccessMessage)
+            !message.contains("HttpException") -> toast(successMessage)
+            else -> toast(errorMessage)
+        }
+    }
+    viewModel.setDownloadToFalse()
 }

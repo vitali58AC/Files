@@ -1,13 +1,11 @@
 package com.example.files.compose
 
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.files.MainActivityViewModel
 
-@ExperimentalAnimationApi
 @Composable
 fun MainScreen(viewModel: MainActivityViewModel) {
     val currentText = viewModel.url.value

@@ -19,6 +19,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mainActivityViewModel.firstLaunchDownload(applicationContext)
         setContent {
             FilesTheme {
                 Surface(color = MaterialTheme.colors.background) {
