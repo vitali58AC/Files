@@ -1,6 +1,7 @@
 package com.example.files
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.os.Environment
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
@@ -16,6 +17,7 @@ class MainActivityViewModel : ViewModel() {
     var fileName = mutableStateOf("")
     var active = mutableStateOf(true)
     var isLoading = mutableStateOf(false)
+
 
     private val _downloadStatus = MutableLiveData<Boolean>()
     val downloadStatus: LiveData<Boolean>
@@ -46,4 +48,5 @@ class MainActivityViewModel : ViewModel() {
             repository.firstLaunchDownload(context)
         }
     }
+
 }

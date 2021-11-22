@@ -4,4 +4,7 @@
     <string name="success_message">File: %1$s success downloaded</string>
     <string name="error_message">Error: %1$s</string>
     <string name="un_success_message">The file from this link has already been downloaded</string>
+    <string name="among_us_png">among_us.png</string>
+    <string name="download_logo_png">download_logo.png</string>
+    <string name="readme_txt">readme.txt</string>
 </resources>

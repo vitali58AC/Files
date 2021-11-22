@@ -12,7 +12,7 @@ fun MainScreen(viewModel: MainActivityViewModel) {
     val active = viewModel.active.value
     val isLoading = viewModel.isLoading.value
     Column {
-        LogoImage()
+        LogoImage(viewModel)
         Spacer(modifier = Modifier.height(60.dp))
         CustomText(text = "Enter link to download file:")
         EditText(
