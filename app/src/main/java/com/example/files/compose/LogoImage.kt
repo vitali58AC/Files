@@ -23,7 +23,6 @@ import com.example.files.R
 
 @Composable
 fun LogoImage(viewModel: MainActivityViewModel) {
-    val image =
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -31,7 +30,6 @@ fun LogoImage(viewModel: MainActivityViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-           // bitmap = BitmapPainter(),
             painter = painterResource(id = R.drawable.download1),
             contentDescription = stringResource(R.string.user_logo),
             contentScale = ContentScale.Crop,
@@ -43,17 +41,5 @@ fun LogoImage(viewModel: MainActivityViewModel) {
                     clip = true
                 )
         )
-/*        Image(
-            bitmap = viewModel.bitmap.asImageBitmap(),
-            contentDescription = stringResource(R.string.user_logo),
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .size(240.dp)
-                .shadow(
-                    elevation = 10.dp,
-                    shape = CircleShape,
-                    clip = true
-                )
-        )*/
     }
 }
