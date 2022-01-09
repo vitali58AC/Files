@@ -70,7 +70,7 @@ dependencies {
     implementation "androidx.compose.animation:animation:$compose_version"
 
     //Compose material3
-    implementation "androidx.compose.material3:material3:1.0.0-alpha01"
+    implementation "androidx.compose.material3:material3:1.0.0-alpha02"
 
     //Compose accompanist
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.17.0"
